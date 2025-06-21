@@ -1,103 +1,404 @@
-import Image from "next/image";
+import Section from "@/components/section/section";
+import { Button } from "@/components/ui/button";
+import ResponsiveImage from "@/components/image/image";
+import HoverCard from "@/components/card/card";
+import AccordionDemo from "@/components/AccordionDemo";
+import VideoLayout from "@/components/VideoLayout";
+import SimpleCard from "@/components/SimpleCard";
+import { LinkCard } from "@/components/card/linkCard";
+import { FeatureCard } from "@/components/card/FeatureCard";
+import { FeatureIconDisplay } from "@/components/card/FeatureIconDisplay";
+import Footer from "@/components/Footer";
+
+// Replace all color constants with CSS variables
+const BG_DARK = "var(--color-bg-dark)";
+const BG_LIGHT = "var(--color-bg-light)";
+const content_neutral_primary = "var(--color-bg-light)";
+const content_neutral_secondary = "var(--color-accent)";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
+    <div className="flex w-full">
+      <main style={{}} className="flex w-full flex-col">
+        <Section backgroundColor={BG_LIGHT} classNames="py-12 px-0">
+          <div className="flex flex-col items-start w-full md:w-[24rem] lg:w-[35rem]">
+            <code
+              style={{
+                color: "var(--color-label)",
+                backgroundColor: "#0000000A",
+              }}
+              className="bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold"
+            >
+              REVENUE STACK
             </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+            <h1
+              style={{
+                fontFamily: "DegularDisplay",
+                color: "var(--color-label)",
+              }}
+              className="font-degular font-bold tracking-normal leading-[5.25rem] text-[clamp(2.5rem,8vw,6rem)]"
+            >
+              Intelligent CRM, purpose-built to
+            </h1>
+            <h1
+              style={{
+                fontFamily: "DegularDisplay",
+                color: "var(--color-bg-dark)",
+              }}
+              className="font-degular font-bold tracking-normal leading-[5.25rem] text-[clamp(2.5rem,8vw,6rem)]"
+            >
+              close more
+            </h1>
+          </div>
+          <div className="flex flex-col items-start gap-4 w-full md:w-[20rem] lg:w-[25rem] self-end">
+            <p
+              style={{ color: "var(--color-desc)" }}
+              className="font-manrope font-medium text-[clamp(1.25rem,2.5vw,1.5rem)] leading-[clamp(1.75rem,3vw,2.25rem)] tracking-normal"
+            >
+              Powerful, flexible and easy-to-use, Revenue Stack makes it easy
+              for opinionated teams to close more on autopilot.
+            </p>
+            <Button
+              style={{
+                color: "var(--color-bg-light)",
+                backgroundColor: "var(--color-bg-dark)",
+              }}
+            >
+              Get in touch
+            </Button>
+          </div>
+        </Section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+        <Section classNames="bg-[url('/background/sea.png')]">
+          <div className="py-[3rem] px-[2rem] md:py-[4rem] md:px-[5rem] lg:py-[5rem] lg:px-[7rem]">
+            <ResponsiveImage
+              src="/dashboard/d1.png"
+              width={651}
+              height={320}
+              alt="dashboard"
+              className="border-[6px] rounded-[0.75rem] rem,6vh,5rem)]"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+          </div>
+        </Section>
+
+        <Section backgroundColor={BG_LIGHT} classNames="py-12 px-0">
+          <div className="flex flex-col justify-between w-full lg:w-[29.5rem]">
+            <div className="flex flex-col items-start">
+              <p className="font-manrope font-bold text-[1rem] leading-[1.25rem] tracking-[0.1em] uppercase">
+                UNIFIED WORKSPACE
+              </p>
+              <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight text-balance text-left">
+                Everything you need to close more revenue
+              </h1>
+              <p className="leading-7 [&:not(:first-child)]:mt-6">
+                Enter meetings armed with critical lead and account information
+                in a single interface. Add tasks, create opportunities and
+                automate follow-ups without having to switch to another screen.
+              </p>
+            </div>
+            <AccordionDemo
+              items={[
+                {
+                  title: "End-to-End Lifecycle Management",
+                  content:
+                    "Manage your entire sales lifecycle from prospecting to closing in one place.",
+                },
+                {
+                  title: "Live Account Overview and Smart Insights",
+                  content:
+                    "Stay on top of accounts, tracking everything from activity and tickets to revenue and risks in one single view.",
+                },
+                {
+                  title: "AI-Generated Cheat Sheet",
+                  content:
+                    "Get a concise summary of the most important information about your leads and accounts, generated by AI.",
+                },
+                {
+                  title: "Task Management and Collaboration",
+                  content:
+                    "Create tasks, assign them to team members, and collaborate seamlessly within the platform.",
+                },
+              ]}
+            />
+          </div>
+          <div className="w-full lg:w-[29.5rem]">
+            <VideoLayout bgImage="oil_paint" />
+          </div>
+        </Section>
+        <Section backgroundColor={BG_DARK} classNames="py-12 px-0">
+          <div className="flex flex-col justify-between lg:w-[29.5rem]">
+            <div className="flex flex-col items-start">
+              <p
+                style={{ color: content_neutral_secondary }}
+                className={`font-manrope font-bold text-[1rem] leading-[1.25rem] tracking-[0.1em] uppercase`}
+              >
+                UNIFIED WORKSPACE
+              </p>
+              <h1
+                style={{ color: content_neutral_primary }}
+                className={`scroll-m-20 text-4xl font-extrabold tracking-tight text-balance text-left `}
+              >
+                Everything you need to close more revenue
+              </h1>
+              <p
+                style={{ color: content_neutral_secondary }}
+                className={`leading-7 [&:not(:first-child)]:mt-6 text-[${content_neutral_secondary}]`}
+              >
+                Enter meetings armed with critical lead and account information
+                in a single interface. Add tasks, create opportunities and
+                automate follow-ups without having to switch to another screen.
+              </p>
+            </div>
+            <AccordionDemo
+              darkMode
+              items={[
+                {
+                  title: "Unified Workspace",
+                  content:
+                    "Enter meetings armed with critical lead and account information in a single interface. Add tasks, create opportunities and automate follow-ups without having to switch to another screen.",
+                },
+                {
+                  title: "AI Builder",
+                  content:
+                    "Craft your bespoke Revenue Stack with an AI Builder assistant. No code required.",
+                },
+                {
+                  title: "Seamless Migration",
+                  content:
+                    "Get going in minutes, not months with our white glove onboarding and 24x7 real-time support.",
+                },
+                {
+                  title: "Cross Platform Support",
+                  content:
+                    "Runs on all devices with dedicated apps for iOS, Android and iPadOS.",
+                },
+              ]}
+            />
+          </div>
+          <div className="w-full lg:w-[29.5rem]">
+            <VideoLayout bgImage="book" />
+          </div>
+        </Section>
+
+        <Section backgroundColor={BG_LIGHT} classNames="py-12 px-0">
+          <div className="flex flex-col justify-between w-full lg:w-[29.5rem]">
+            <div className="flex flex-col items-start">
+              <p className="font-manrope font-bold text-[1rem] leading-[1.25rem] tracking-[0.1em] uppercase">
+                UNIFIED WORKSPACE
+              </p>
+              <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight text-balance text-left">
+                Everything you need to close more revenue
+              </h1>
+              <p className="leading-7 [&:not(:first-child)]:mt-6">
+                Enter meetings armed with critical lead and account information
+                in a single interface. Add tasks, create opportunities and
+                automate follow-ups without having to switch to another screen.
+              </p>
+            </div>
+            <AccordionDemo
+              items={[
+                {
+                  title: "Unified Workspace",
+                  content:
+                    "Enter meetings armed with critical lead and account information in a single interface. Add tasks, create opportunities and automate follow-ups without having to switch to another screen.",
+                },
+                {
+                  title: "AI Builder",
+                  content:
+                    "Craft your bespoke Revenue Stack with an AI Builder assistant. No code required.",
+                },
+                {
+                  title: "Seamless Migration",
+                  content:
+                    "Get going in minutes, not months with our white glove onboarding and 24x7 real-time support.",
+                },
+                {
+                  title: "Cross Platform Support",
+                  content:
+                    "Runs on all devices with dedicated apps for iOS, Android and iPadOS.",
+                },
+              ]}
+            />
+          </div>
+          <div className="w-full lg:w-[29.5rem]">
+            <VideoLayout bgImage="sea" />
+          </div>
+        </Section>
+
+        <Section backgroundColor={BG_DARK} classNames="py-12 px-0">
+          <div className={`flex flex-col gap-10 max-w-[70.5rem]`}>
+            <div className="w-full ">
+              <p
+                style={{ color: content_neutral_secondary }}
+                className="font-manrope font-bold text-[1rem] leading-[1.25rem] tracking-[0.1em] uppercase"
+              >
+                SEAMLESS MIGRATION
+              </p>
+              <h1
+                style={{ color: content_neutral_primary }}
+                className="scroll-m-20 text-4xl font-extrabold tracking-tight text-balance text-left"
+              >
+                Get going in minutes, not months
+              </h1>
+              <p
+                style={{ color: content_neutral_secondary }}
+                className={`leading-7 [&:not(:first-child)]:mt-6 text-[${content_neutral_secondary}]`}
+              >
+                Craft your bespoke Revenue Stack with an AI Builder assistant.
+                <br /> No code required.
+              </p>
+            </div>
+            <div
+              className={`flex flex-col bg-[#3D3834] rounded-[0.75rem] p-2 items-center justify-center`}
+            >
+              <div className="bg-[url('/background/sea.png')] px-[clamp(1.5rem,6vw,8.5rem)] py-[clamp(1.5rem,6vw,8.5rem)] rounded-[.5rem] flex items-center justify-center">
+                <ResponsiveImage
+                  src="/dashboard/d1.png"
+                  width={300}
+                  height={300}
+                  alt="dashboard"
+                  className="border-[6px] rounded-[0.75rem] rem,6vh,5rem)]"
+                />
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+                <SimpleCard
+                  title="White glove onboarding"
+                  description="Personalised onboarding for your entire tool and process stack onto Solo for free."
+                />
+                <SimpleCard
+                  title="24x7 real-time support"
+                  description="We work closely with our Beta customers and will always be available to them."
+                />
+                <SimpleCard
+                  title="Goes with your stack"
+                  description="Solo plays well with your tool stack with over 500+ integrations."
+                />
+              </div>
+            </div>
+          </div>
+        </Section>
+
+        <Section backgroundColor={BG_LIGHT} classNames="py-12 px-0">
+          <div className="flex flex-col max-w-[70.5rem] gap-10">
+            <div className="w-full">
+              <p
+                style={{ color: "var(--color-label)" }}
+                className="font-manrope font-bold text-[1rem] leading-[1.25rem] tracking-[0.1em] uppercase"
+              >
+                SEAMLESS MIGRATION
+              </p>
+              <h1
+                style={{ color: "var(--color-bg-dark)" }}
+                className="scroll-m-20 text-4xl font-extrabold tracking-tight text-balance text-left"
+              >
+                Get going in minutes, not months
+              </h1>
+              <p
+                style={{ color: "var(--color-desc)" }}
+                className={`leading-7 [&:not(:first-child)]:mt-6 text-[${content_neutral_secondary}]`}
+              >
+                Craft your bespoke Revenue Stack with an AI Builder assistant.
+                <br /> No code required.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <HoverCard
+                videoSrc="/dashboard/AI_1.mp4"
+                title="Prospecting"
+                description="Find and add accounts and stakeholders in your TAM with a single prompt."
+              />
+              <HoverCard
+                videoSrc="/dashboard/AI_2.mp4"
+                title="Reach-outs"
+                description="Find and add accounts and stakeholders in your TAM with a single prompt."
+              />
+              <HoverCard
+                videoSrc="/dashboard/AI_3.mp4"
+                title="Pipeline management"
+                description="Find and add accounts and stakeholders in your TAM with a single prompt."
+              />
+              <HoverCard
+                videoSrc="/dashboard/AI_4.mp4"
+                title="Account Management"
+                description="Find and add accounts and stakeholders in your TAM with a single prompt."
+              />
+              <HoverCard
+                videoSrc="/dashboard/AI_5.mp4"
+                title="Forecasting"
+                description="Find and add accounts and stakeholders in your TAM with a single prompt."
+              />
+              <HoverCard
+                videoSrc="/dashboard/AI_6.mp4"
+                title="Analytics and Reporting"
+                description="Find and add accounts and stakeholders in your TAM with a single prompt."
+              />
+            </div>
+          </div>
+        </Section>
+        <Section backgroundColor={BG_DARK} classNames="py-12 px-0">
+          <div className="flex flex-col max-w-[70.5rem] gap-10">
+            <div className="w-full">
+              <p
+                style={{ color: content_neutral_secondary }}
+                className="font-manrope font-bold text-[1rem] leading-[1.25rem] tracking-[0.1em] uppercase"
+              >
+                SEAMLESS MIGRATION
+              </p>
+              <h1
+                style={{ color: content_neutral_primary }}
+                className="scroll-m-20 text-4xl font-extrabold tracking-tight text-balance text-left"
+              >
+                Get going in minutes, not months
+              </h1>
+              <p
+                style={{ color: content_neutral_secondary }}
+                className={`leading-7 [&:not(:first-child)]:mt-6 text-[${content_neutral_secondary}]`}
+              >
+                Craft your bespoke Revenue Stack with an AI Builder assistant.
+                <br /> No code required.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <LinkCard
+                title="Prospecting"
+                description="Find and add accounts and stakeholders in your TAM with a single prompt."
+                imageSrc="/dashboard/d-bend1.png"
+                link="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              />
+              <LinkCard
+                title="Reach-outs"
+                description="Find and add accounts and stakeholders in your TAM with a single prompt."
+                imageSrc="/dashboard/d-bend2.png"
+                link="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              />
+            </div>
+          </div>
+        </Section>
+
+        <Section backgroundColor={BG_LIGHT} classNames="py-12 px-0">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 max-w-6xl mx-auto py-8">
+            <FeatureCard
+              icon={<FeatureIconDisplay type="platform" />}
+              label="Cross Platform Support"
+              title={"Get going on web,\nmobile or desktop"}
+              description={
+                "Runs on all devices with dedicated apps for iOS, Android and iPadOS"
+              }
+            />
+            <FeatureCard
+              icon={<FeatureIconDisplay type="security" />}
+              label="Enterprise-grade security"
+              title={"Security first.\nAnd second."}
+              description={
+                "Your data is never shared without your consent and will never be used for model training"
+              }
+            />
+          </div>
+        </Section>
+        <Section backgroundColor={BG_LIGHT} classNames="py-12 px-0">
+          <Footer />
+        </Section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }

@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Manrope as LoadManrope } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+import localFont from "next/font/local";
+import Navbar from "@/components/Navbar";
+const DegularDisplay = localFont({
+  src: "./DegularDisplay-Regular.woff2",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const Manrope = LoadManrope({
   subsets: ["latin"],
 });
 
@@ -25,8 +24,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        style={{ backgroundColor: "#FFF7F1" }}
+        className={`${DegularDisplay.className} ${Manrope.className}`}
       >
+        <Navbar />
         {children}
       </body>
     </html>
