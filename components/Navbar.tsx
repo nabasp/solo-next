@@ -5,13 +5,31 @@ import Image from "next/image";
 import { NavSubMenu } from "@/components/NavSubMenu";
 import { MobileNavSubMenu } from "@/components/MobileNavSubMenu";
 
-const navConfig = [
+type NavSubMenuType = {
+  title: string;
+  description: string;
+  learnMoreHref: string;
+  capabilities: {
+    label: string;
+    description: string;
+    href: string;
+  }[];
+};
+
+type NavConfigItem = {
+  label: string;
+  href?: string;
+  submenu?: NavSubMenuType;
+};
+
+const navConfig: NavConfigItem[] = [
   {
     label: "Agents",
     href: "#agents",
   },
   {
     label: "Platform",
+    // Uncomment and fill in submenu if needed
     // submenu: {
     //   title: "Platform",
     //   description: "Bring your ideas to life with Agent Studio",
@@ -92,7 +110,7 @@ export default function Navbar() {
             item.submenu ? (
               <NavSubMenu
                 key={item.label}
-                title={item.submenu.title}
+                title={item?.submenu?.title || ""}
                 description={item.submenu.description}
                 learnMoreHref={item.submenu.learnMoreHref}
                 capabilities={item.submenu.capabilities}
