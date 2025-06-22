@@ -17,7 +17,7 @@ export function FeatureCard({
 }: FeatureCardProps) {
   return (
     <div
-      className={`bg-white rounded-2xl shadow-sm p-6 md:p-8 flex flex-col gap-4 min-h-[240px] w-full ${
+      className={`bg-white rounded-2xl shadow-sm p-6 md:p-8 flex flex-col gap-4 xl:min-h-[388px] w-full xl:min-w-[552px] ${
         className || ""
       }`.trim()}
     >

@@ -51,7 +51,7 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[var(--color-footer-bg)] py-12 px-2 md:px-0">
+    <footer className="w-full bg-[var(--color-footer-bg)] py-5 px-9 xl:py-[7.5rem] xl:px-[9.75rem]">
       <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8">
         {footerLinks.map((col) => (
           <div key={col.heading}>

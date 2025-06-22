@@ -1,177 +1,72 @@
 "use client";
-
-import React, { useRef, useState } from "react";
-
+import React, { useRef } from "react";
 interface CardProps {
-  title?: string;
+  title: string;
   imageSrc?: string;
-  videoSrc?: string;
-  alt?: string;
-  description?: string;
+  videoSrc: string;
+  description: string;
 }
 
-const CARD_HEIGHT = 360; // px, fixed height for desktop
-const DESC_MAX_HEIGHT = 76; // px, max height for desc
-
-const Card: React.FC<CardProps> = ({ videoSrc, title, description }) => {
-  const [hovered, setHovered] = useState(false);
+export default function VideoCard({
+  title,
+  imageSrc = "/background/sea.png",
+  videoSrc,
+  description,
+}: CardProps) {
+  const [mouseOver, setMouseOver] = React.useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-
-  const handleMouseEnter = () => {
-    setHovered(true);
-    videoRef.current?.play();
-  };
-
-  const handleMouseLeave = () => {
-    setHovered(false);
-    videoRef.current?.pause();
-    if (videoRef.current) {
-      videoRef.current.currentTime = 0;
-    }
-  };
-
-  // Responsive: use 100vw for mobile, fixed for desktop
-  const cardWidth = "100%";
-  const cardMaxWidth = "360px";
-  const cardHeight = CARD_HEIGHT;
-  const descHeight = hovered ? DESC_MAX_HEIGHT : 0;
-  const videoHeight = cardHeight - descHeight;
-
+  function handleMouseOver() {
+    setMouseOver(true);
+  }
+  function handleMouseOut() {
+    setMouseOver(false);
+  }
   return (
     <div
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        width: cardWidth,
-        maxWidth: cardMaxWidth,
-        height: cardHeight,
-        position: "relative",
-        borderTopLeftRadius: "1rem",
-        borderTopRightRadius: "1rem",
-        overflow: "hidden",
-        background: "#fff",
-        cursor: "pointer",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-end",
-        boxSizing: "border-box",
-      }}
+      onPointerEnter={handleMouseOver}
+      onMouseLeave={handleMouseOut}
+      className="rounded-[0.75rem] bg-white"
     >
-      {/* Responsive video wrapper */}
       <div
-        className="video-wrapper"
         style={{
-          height: videoHeight,
-          width: "100%",
-          transition: "height 0.4s cubic-bezier(0.4,0,0.2,1)",
-          position: "relative",
-          background:
-            "url('/background/oil_paint.png') center center / cover no-repeat",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          filter: hovered ? "none" : "grayscale(1) contrast(1.1)",
-          transitionProperty: "height, filter",
-          boxSizing: "border-box",
+          backgroundImage: imageSrc ? `url(${imageSrc})` : undefined,
+          paddingTop: mouseOver ? ".75rem" : "2.25rem",
+          paddingBottom: mouseOver ? ".75rem" : "2.25rem",
+          filter: mouseOver ? "none" : " grayscale(1) contrast(1.1)",
+          transition:
+            "padding 0.5s cubic-bezier(0.4,0,0.2,1), filter 0.5s cubic-bezier(0.4,0,0.2,1)",
         }}
+        className="rounded-t-[0.75rem] px-3 py-9"
       >
         <video
           ref={videoRef}
-          src={videoSrc}
-          className="card-video"
-          muted
-          loop
-          preload="auto"
-          style={{
-            display: "block",
-            width: "90%",
-            height: "80%",
-            objectFit: "cover",
-            borderRadius: "1rem",
-          }}
-        />
+          preload={"auto"}
+          autoPlay={true}
+          muted={true}
+          loop={true}
+          playsInline
+          className="rounded-[0.75rem] w-full object-cover"
+        >
+          <source src={videoSrc} type="video/mp4" /> Your browser does not
+          support the video tag.
+        </video>
       </div>
-      {/* Overlay for title and desc at bottom */}
-      <div
-        style={{
-          position: "relative",
-          background: "rgba(255, 255, 255, 0.8)",
-          color: "#000",
-          borderBottomLeftRadius: "1rem",
-          borderBottomRightRadius: "1rem",
-          padding: "1rem",
-          boxSizing: "border-box",
-          transition: "background 0.4s, color 0.4s",
-        }}
-      >
-        <h3 style={{ margin: 0, fontSize: "1.25rem", fontWeight: 600 }}>
+      <div className="p-6">
+        <h3 className="font-manrope  text-[1.25rem] leading-[1.75rem] font-bold text-[color:#2D2926]">
           {title}
         </h3>
         <div
+          className="font-manrope font-medium text-[color:#7A6E64]"
           style={{
-            maxHeight: descHeight,
             overflow: "hidden",
-            transition: "max-height 0.4s cubic-bezier(0.4,0,0.2,1)",
+            height: mouseOver ? "3rem" : "0",
+            transition:
+              "height 0.5s cubic-bezier(0.4,0,0.2,1), filter 0.5s cubic-bezier(0.4,0,0.2,1)",
           }}
         >
-          <p
-            style={{
-              margin: 0,
-              transform: hovered ? "translateY(0)" : "translateY(100%)",
-              opacity: hovered ? 1 : 0,
-              transition:
-                "transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s",
-            }}
-          >
-            {description}
-          </p>
+          <p>{description}</p>
         </div>
       </div>
-      {/* Responsive styles */}
-      <style>{`
-        .video-wrapper {
-          max-width: 360px;
-          max-height: 296px;
-          width: 100%;
-          height: ${videoHeight}px;
-        }
-        .card-video {
-          max-width: 336px;
-          max-height: 224px;
-          width: 100%;
-          height: 100%;
-        }
-        @media (max-width: 1440px) {
-          .video-wrapper {
-            max-width: 360px;
-            max-height: 296px;
-          }
-          .card-video {
-            max-width: 336px;
-            max-height: 224px;
-          }
-        }
-        @media (max-width: 600px) {
-          div[style*='max-width: 360px'] {
-            max-width: 98vw !important;
-            height: 54vw !important;
-            min-width: 0 !important;
-          }
-          .video-wrapper {
-            max-width: 98vw;
-            max-height: 40vw;
-          }
-          .card-video {
-            max-width: 92vw;
-            max-height: 24vw;
-          }
-          h3 {
-            font-size: 1rem !important;
-          }
-        }
-      `}</style>
     </div>
   );
-};
-
-export default Card;
+}

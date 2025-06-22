@@ -15,15 +15,13 @@ export default function ResponsiveImage({
   className,
 }: ResponsiveImageProps) {
   return (
-    <div>
-      <Image
-        src={src}
-        alt={alt}
-        layout="responsive"
-        width={width}
-        height={height}
-        className={className}
-      />
-    </div>
+    <Image
+      src={src}
+      alt={alt}
+      layout="responsive"
+      width={width}
+      height={height}
+      className={className}
+    />
   );
 }

@@ -12,33 +12,33 @@ const navConfig = [
   },
   {
     label: "Platform",
-    submenu: {
-      title: "Platform",
-      description: "Bring your ideas to life with Agent Studio",
-      learnMoreHref: "#platform",
-      capabilities: [
-        {
-          label: "Knowledge Studio",
-          description: "Give every team an edge",
-          href: "#knowledge",
-        },
-        {
-          label: "Canvas Studio",
-          description: "Get an OS for your life",
-          href: "#canvas",
-        },
-        {
-          label: "Skill Studio",
-          description: "Give every team an edge",
-          href: "#skill",
-        },
-        {
-          label: "Intelligence Studio",
-          description: "Give every team an edge",
-          href: "#intelligence",
-        },
-      ],
-    },
+    // submenu: {
+    //   title: "Platform",
+    //   description: "Bring your ideas to life with Agent Studio",
+    //   learnMoreHref: "#platform",
+    //   capabilities: [
+    //     {
+    //       label: "Knowledge Studio",
+    //       description: "Give every team an edge",
+    //       href: "#knowledge",
+    //     },
+    //     {
+    //       label: "Canvas Studio",
+    //       description: "Get an OS for your life",
+    //       href: "#canvas",
+    //     },
+    //     {
+    //       label: "Skill Studio",
+    //       description: "Give every team an edge",
+    //       href: "#skill",
+    //     },
+    //     {
+    //       label: "Intelligence Studio",
+    //       description: "Give every team an edge",
+    //       href: "#intelligence",
+    //     },
+    //   ],
+    // },
   },
   {
     label: "Marketplace",

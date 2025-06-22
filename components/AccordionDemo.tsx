@@ -6,9 +6,6 @@ import {
 } from "@/components/ui/accordion";
 import { ReactNode } from "react";
 
-const content_neutral_primary = "#FFF7F1";
-const content_neutral_secondary = "#FCC998";
-
 interface AccordionItemData {
   title: string;
   content: ReactNode;
@@ -31,15 +28,30 @@ export default function AccordionDemo({
       defaultValue={items[0] ? `item-0` : undefined}
     >
       {items.map((item, idx) => (
-        <AccordionItem value={`item-${idx}`} key={idx}>
+        <AccordionItem
+          value={`item-${idx}`}
+          key={idx}
+          className={`border-b border-b-[rgba(255,159,79,0.32)]`}
+        >
           <AccordionTrigger
-            style={{ color: darkMode ? content_neutral_primary : "" }}
+            style={{
+              color: darkMode
+                ? "rgba(255, 247, 241, 1)"
+                : "rgba(45, 41, 38, 1)",
+            }}
+            className="font-manrope text-[0.9375rem] leading-[1.25rem] font-bold"
           >
             {item.title}
           </AccordionTrigger>
           <AccordionContent
-            className={`flex flex-col gap-4 text-balance`}
-            style={{ color: darkMode ? content_neutral_secondary : "" }}
+            className={
+              "font-manrope text-[0.9375rem] leading-[1.25rem] font-medium"
+            }
+            style={{
+              color: darkMode
+                ? "rgba(252, 201, 152, 0.7)"
+                : "rgba(150, 147, 143, 1)",
+            }}
           >
             {item.content}
           </AccordionContent>
