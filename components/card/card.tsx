@@ -17,9 +17,11 @@ export default function VideoCard({
   const videoRef = useRef<HTMLVideoElement>(null);
   function handleMouseOver() {
     setMouseOver(true);
+    videoRef?.current?.play();
   }
   function handleMouseOut() {
     setMouseOver(false);
+    videoRef?.current?.pause();
   }
   return (
     <div
@@ -41,7 +43,6 @@ export default function VideoCard({
         <video
           ref={videoRef}
           preload={"auto"}
-          autoPlay={true}
           muted={true}
           loop={true}
           playsInline

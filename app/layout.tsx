@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { Manrope as LoadManrope } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
+
 import Navbar from "@/components/Navbar";
 const DegularDisplay = localFont({
-  src: "./DegularDisplay-Regular.woff2",
+  src: "../public/fonts/DegularDisplay-Bold.otf",
 });
 
 const Manrope = LoadManrope({

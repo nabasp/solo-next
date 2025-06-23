@@ -62,7 +62,7 @@ export default function UnifiedWorkspaceSection({
             <AccordionDemo items={accordionItems} darkMode={mode === "DARK"} />
           </div>
         </div>
-        <div className="w-full lg:w-[50%]">
+        <div className="w-full lg:w-[50%] flex items-center">
           <VideoLayout bgImage={videoBgImage} />
         </div>
       </div>

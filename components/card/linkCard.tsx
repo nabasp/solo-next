@@ -21,7 +21,7 @@ export function LinkCard({
   return (
     <div className=" relative flex flex-col justify-between w-[34.5rem] h-[22.5rem] rounded-[1.5rem] border border-[#3D3834] bg-[#3D3834]">
       {/* Content wrapper (top 50%) */}
-      <div className="flex flex-col m-8">
+      <div className="flex flex-col pt-8 pl-8 pb-6">
         <span
           style={{
             color: "rgba(252, 201, 152, 1)",
@@ -44,7 +44,7 @@ export function LinkCard({
           backgroundImage: `linear-gradient(108deg, rgba(61, 56, 52, 0) 0%, #3D3834 100%), url('${imageSrc}')`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          backgroundPosition: "left top",
+          backgroundPosition: "right top",
         }}
       ></div>
       {/* Icon button bottom right */}
